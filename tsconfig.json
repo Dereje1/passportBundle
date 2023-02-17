@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "../server_build",        // path to output directory
+        "outDir": "dist",        // path to output directory
         "sourceMap": true,          // allow sourcemap support
         "strictNullChecks": true,    // specify module code generation
         "target": "es5",            // specify ECMAScript target version
@@ -16,7 +16,8 @@
         "module": "commonjs",                    
         "lib": ["es6"],    
         "strict": true,         
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "declaration": true
     },
     "compileOnSave": true
 }

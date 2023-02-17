@@ -7,3 +7,6 @@ codecov
 
 #private
 .env
+
+#build
+/dist
