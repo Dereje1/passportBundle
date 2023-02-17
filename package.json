@@ -1,0 +1,40 @@
+{
+  "name": "passportbundle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "ip": "^1.1.8",
+    "passport": "^0.6.0",
+    "passport-github": "^1.1.0",
+    "passport-google-oauth": "^2.0.0",
+    "passport-twitter": "latest",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.16",
+    "@types/ip": "^1.1.0",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.11.18",
+    "@types/passport": "^1.0.11",
+    "@types/passport-github": "^1.1.7",
+    "@types/passport-google-oauth": "^1.0.42",
+    "@types/passport-twitter": "^1.0.37"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dereje1/passportBundle.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dereje1/passportBundle/issues"
+  },
+  "homepage": "https://github.com/Dereje1/passportBundle#readme"
+}
