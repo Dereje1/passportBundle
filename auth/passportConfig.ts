@@ -1,13 +1,11 @@
 import { PassportStatic } from 'passport';
-import path from 'path';
 // config/passport.js for twitter
 import { Strategy as TwitterStrategy, Profile as twitterProfile } from 'passport-twitter';
 import { OAuth2Strategy as GoogleStrategy, Profile as googleProfile, VerifyFunction } from 'passport-google-oauth';
 import { Strategy as GitHubStrategy, Profile as githubProfile } from 'passport-github';
-import { getApiKeys } from '../utils';
 // load up the user model
-const userModelPath = path.join(__dirname, process.env.USER_MODEL_PATH || '')
-const User = require(userModelPath)
+import User from '../user';
+import { getApiKeys } from '../utils';
 
 export const processLogin = async (
   token: string,
