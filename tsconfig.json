@@ -19,5 +19,9 @@
         "resolveJsonModule": true,
         "declaration": true
     },
-    "compileOnSave": true
+    "compileOnSave": true,
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": ["tests"]
 }
