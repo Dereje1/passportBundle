@@ -1,3 +1,5 @@
-import authIndex from './auth/index';
+import auth from './auth/index';
+import isLoggedIn from './auth/isloggedin';
 
-export default authIndex;
+
+export { auth, isLoggedIn };

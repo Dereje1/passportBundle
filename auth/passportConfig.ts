@@ -4,8 +4,9 @@ import { Strategy as TwitterStrategy, Profile as twitterProfile } from 'passport
 import { OAuth2Strategy as GoogleStrategy, Profile as googleProfile, VerifyFunction } from 'passport-google-oauth';
 import { Strategy as GitHubStrategy, Profile as githubProfile } from 'passport-github';
 // load up the user model
-import User from '../user';
 import { getApiKeys } from '../utils';
+
+let PassedUser: any;
 
 export const processLogin = async (
   token: string,
@@ -17,11 +18,11 @@ export const processLogin = async (
     provider, id, username, displayName, emails,
   } = profile;
   try {
-    const user = await User.findOne({ $and: [{ userId: id }, { service: provider }] }).exec();
+    const user = await PassedUser.findOne({ $and: [{ userId: id }, { service: provider }] }).exec();
     if (user) {
       return done(null, user);
     }
-    const newUser = await User.create({
+    const newUser = await PassedUser.create({
       userId: id,
       token,
       username: username || (emails && emails[0].value),
@@ -34,7 +35,8 @@ export const processLogin = async (
   }
 };
 
-export const passportConfig = (passport: PassportStatic) => {
+export const passportConfig = (passport: PassportStatic, User: any) => {
+  PassedUser = User;
   const { keys: { twitterApiKeys, googleApiKeys, githubApiKeys } } = getApiKeys();
 
   // used to serialize the user for the session
