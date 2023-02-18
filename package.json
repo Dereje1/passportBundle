@@ -1,11 +1,11 @@
 {
   "name": "passportbundle",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watch",
     "prepublish": "tsc"
   },
   "dependencies": {
@@ -22,12 +22,25 @@
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.16",
     "@types/ip": "^1.1.0",
+    "@types/jest": "^29.4.0",
     "@types/mongoose": "^5.11.97",
     "@types/node": "^18.11.18",
     "@types/passport": "^1.0.11",
     "@types/passport-github": "^1.1.7",
     "@types/passport-google-oauth": "^1.0.42",
-    "@types/passport-twitter": "^1.0.37"
+    "@types/passport-twitter": "^1.0.37",
+    "jest": "^29.4.3",
+    "ts-jest": "^29.0.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": [
+        "ts-jest",
+        {
+          "tsconfig": "./tests/tsconfig.test.json"
+        }
+      ]
+    }
   },
   "repository": {
     "type": "git",
