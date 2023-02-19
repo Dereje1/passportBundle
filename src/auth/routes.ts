@@ -4,7 +4,7 @@ import { Request, Express } from 'express';
 import ip from 'ip';
 import isLoggedIn from './isloggedin';
 import { getUserProfile, getApiKeys } from '../utils';
-import { genericResponseType, UserType } from '../interfaces';
+import { genericResponseType, UserType, OptionsType } from '../interfaces';
 
 const PROVIDERS = [
   { name: 'twitter', options: {} },
@@ -38,7 +38,7 @@ export const logOut = (req: Request, res: genericResponseType) => {
   });
 };
 
-export const setAuthRoutes = (app: Express, passport: PassportStatic) => {
+export const setAuthRoutes = (app: Express, passport: PassportStatic, options?: OptionsType) => {
   app.get('/auth/profile', isLoggedIn, getProfile);
   app.get('/auth/guest', setGuest);
   app.get('/auth/logout', logOut);
@@ -47,10 +47,11 @@ export const setAuthRoutes = (app: Express, passport: PassportStatic) => {
     app.get(`/auth/${name}`, passport.authenticate(name, options));
   });
   // set redirect routes
+  const redirect = options?.redirect || {
+    successRedirect: '/',
+    failureRedirect: '/',
+  }
   PROVIDERS.forEach(({ name }) => {
-    app.get(`/auth/${name}/redirect`, passport.authenticate(name, {
-      successRedirect: '/pins',
-      failureRedirect: '/',
-    }));
+    app.get(`/auth/${name}/redirect`, passport.authenticate(name, redirect));
   });
 };

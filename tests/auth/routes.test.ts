@@ -93,7 +93,12 @@ describe('The app will', () => {
     jest.restoreAllMocks();
   });
   test('set the auth routes', () => {
-    setAuthRoutes(app as unknown as Express, passport as unknown as PassportStatic);
+    setAuthRoutes(app as unknown as Express, passport as unknown as PassportStatic, {
+      redirect: {
+        successRedirect: '/pins',
+        failureRedirect: '/',
+      },
+    },);
     const allowedRoutes = app.get.mock.calls.map((r) => r[0]);
     expect(allowedRoutes).toEqual([
       '/auth/profile',

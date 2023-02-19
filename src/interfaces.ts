@@ -30,3 +30,10 @@ export interface genericResponseType {
     end: () => void
     redirect: (route: string) => void
 }
+
+export interface OptionsType {
+    redirect:{
+      successRedirect: string
+      failureRedirect: string
+    }
+  }
