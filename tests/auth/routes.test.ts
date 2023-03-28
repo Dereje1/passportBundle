@@ -12,6 +12,7 @@ const user = {
   username: 'twitter-user-name',
   token: 'stub -token',
   service: 'twitter',
+  createdAt: 'stub date'
 };
 
 describe('Authentication routes', () => {
@@ -46,6 +47,7 @@ describe('Authentication routes', () => {
       displayName: 'tester-twitter',
       service: 'twitter',
       isAdmin: false,
+      createdAt: 'stub date'
     });
   });
 

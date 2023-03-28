@@ -1,6 +1,6 @@
 {
   "name": "passportbundle",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -46,7 +46,7 @@
     "type": "git",
     "url": "git+https://github.com/Dereje1/passportBundle.git"
   },
-  "keywords": [],
+  "keywords": ["express", "passport", "mongodb", "twitter", "google", "github"],
   "author": "",
   "license": "ISC",
   "bugs": {

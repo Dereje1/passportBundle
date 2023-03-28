@@ -5,6 +5,7 @@ export interface UserType {
     displayName: string | null,
     username: string,
     service: string,
+    createdAt: string
 }
 
 export interface apiKeys {

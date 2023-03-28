@@ -10,3 +10,4 @@ codecov
 
 #build
 /dist
+.DS_Store

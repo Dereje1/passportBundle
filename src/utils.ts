@@ -68,6 +68,7 @@ export const getUserProfile = (user: UserType):({
   displayName: string | null,
   username: string |undefined,
   isAdmin: boolean,
+  createdAt: string | undefined,
 }) => {
   if (!user) {
     return {
@@ -76,10 +77,11 @@ export const getUserProfile = (user: UserType):({
       displayName: null,
       username: undefined,
       isAdmin: false,
+      createdAt: undefined,
     };
   }
   const {
-    _id, service, userId, displayName, username,
+    _id, service, userId, displayName, username, createdAt
   } = user;
 
   const isAdmin = Boolean(
@@ -92,5 +94,6 @@ export const getUserProfile = (user: UserType):({
     displayName: displayName || '🚫',
     username,
     isAdmin,
+    createdAt,
   };
 };
